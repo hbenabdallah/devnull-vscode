@@ -1,7 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/logo-dark.png">
-  <img alt="/dev/null" src="docs/logo-light.png" height="48">
-</picture>
+<img alt="/dev/null" src="docs/logo.png" height="64">
 
 # /dev/null for VS Code
 
