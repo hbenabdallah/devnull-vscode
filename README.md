@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/logo-dark.png">
+  <img alt="/dev/null" src="docs/logo-light.png" height="48">
+</picture>
+
 # /dev/null for VS Code
 
 Commit code from your editor to [/dev/null](https://dev-null.sh), the social network for developers.
