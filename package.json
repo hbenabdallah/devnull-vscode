@@ -1,0 +1,90 @@
+{
+  "name": "devnull-vscode",
+  "displayName": "/dev/null",
+  "description": "Commit code from your editor to /dev/null, the social network for developers.",
+  "version": "0.1.0",
+  "publisher": "hbenabdallah",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hbenabdallah/devnull-vscode"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "devnull",
+    "dev-null",
+    "social",
+    "share code"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "devnull.signIn",
+        "title": "Sign In",
+        "category": "/dev/null"
+      },
+      {
+        "command": "devnull.signOut",
+        "title": "Sign Out",
+        "category": "/dev/null"
+      },
+      {
+        "command": "devnull.commit",
+        "title": "Commit",
+        "category": "/dev/null"
+      },
+      {
+        "command": "devnull.commitSelection",
+        "title": "Commit Selection to /dev/null",
+        "category": "/dev/null"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "devnull.commitSelection",
+          "when": "editorHasSelection",
+          "group": "9_cutcopypaste@99"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "devnull.commitSelection",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "/dev/null",
+      "properties": {
+        "devnull.url": {
+          "type": "string",
+          "default": "https://dev-null.sh",
+          "description": "The /dev/null site to commit to."
+        },
+        "devnull.linkToGitHub": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add a link to the selected lines on GitHub when the file is in a GitHub repository and its commit is pushed."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "tsc -p . && node --test out/test/*.test.js",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.0",
+    "typescript": "^5.7.0"
+  }
+}
